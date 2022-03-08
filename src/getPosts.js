@@ -1,9 +1,9 @@
 import React, {useState} from 'react'
-
+import sequelize from './sequelize'
 
 function GetPosts () {
     const [posts,setPosts] = useState([])
-
+const results = sequelize.query(`SELECT * FROM threads`)
 
 
     return <div>
