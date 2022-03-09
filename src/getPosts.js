@@ -1,17 +1,12 @@
 import React, {useState} from 'react'
-import sequelize from './sequelize'
+const express = require('express')
+const axios = require('axios')
+const app = express()
+const url = '../server/index.js'
 
-function GetPosts () {
-    const [posts,setPosts] = useState([])
-const results = sequelize.query(`SELECT * FROM threads`)
 
+function getThreads(){
+const threads = axios.get(url`/threads`).then(res=>{console.log(res)})
 
-    return <div>
-        {posts.map((e,i)=>{
-            return <p key={i}>{e}</p>
-        })}
-    </div>
-
+return 
 }
-
-export default GetPosts

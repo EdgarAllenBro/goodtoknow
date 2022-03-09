@@ -1,13 +1,14 @@
 import React, {useState} from 'react'
 import './App.css';
-import getPosts from './getPosts';
 import {Routes,Route,Link} from 'react-router-dom'
 import NewThread from './newThread';
-
+const axios = require('axios')
 
 function App() {
+const getThreads = ()=> axios.get('/index/threads')
+.then(res=>console.log(res))
 
-getPosts()
+getThreads()
 
 return <div>
 <Routes>
