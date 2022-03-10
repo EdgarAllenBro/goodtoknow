@@ -5,8 +5,8 @@ import NewThread from './newThread';
 const axios = require('axios')
 
 function App() {
-const getThreads = ()=> axios.get('/index/threads')
-.then(res=>console.log(res))
+const getThreads = ()=> axios.get('http://localhost:3001/')
+.then(res=>{console.log(res.data)})
 
 getThreads()
 
