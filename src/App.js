@@ -2,13 +2,11 @@ import React, {useState} from 'react'
 import './App.css';
 import {Routes,Route,Link} from 'react-router-dom'
 import NewThread from './newThread';
+import GetThreads from './getThreads'
 const axios = require('axios')
 
 function App() {
-const getThreads = ()=> axios.get('http://localhost:3001/')
-.then(res=>{console.log(res.data)})
 
-getThreads()
 
 return <div>
 <Routes>
@@ -29,6 +27,7 @@ function Home() {
         <nav>
         <Link className='Link' to='/NewThread'>Create New</Link>
         </nav>
+        <GetThreads />
       </main>
     </>
   )
