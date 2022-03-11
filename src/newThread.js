@@ -1,13 +1,12 @@
 import React,{useState} from 'react'
 import {Routes,Route,Link} from 'react-router-dom'
 import './App.css';
-
+const axios = require('axios')
 
 
 
 function NewThread(){
 const [type,setType] = useState('')
-const [summary,setSummary] = useState('')
 const [content,setContent] = useState('')
 const [title, setTitle] = useState('')
 
@@ -16,13 +15,18 @@ const handleTitle = (e)=>{
 }
 const handleType = (e)=>{
     setType(e.target.value)}
-const handleSummary = (e)=>{
-    setSummary(e.target.value)}
+
 const handleContent = (e)=>{
     setContent(e.target.value)}
 
 const handleSubmit = ()=>{
-console.log(`type is: ${type} summary is: ${summary} conetent is: ${content}`)
+axios.post('http://localhost:3001/newThread', {
+    type:type,
+    content:content,
+    title:title
+}).catch(err=>{console.Console.log(err)})
+
+// console.log(`type is: ${type} title is: ${title} content is: ${content}`)
 }
 
 return<div>
@@ -33,14 +37,13 @@ return<div>
 
 <form>
     <input onChange={handleTitle} id='newTitle' placeholder='Title'></input>
-    <select onChange={handleType} name='type' id='typeSelect'>
+    <select onChange={handleType} name='type' id='typeSelect' defaultValue={'other'}>
         <option value='other'>Other</option>
         <option value='health'>Health</option>
         <option value='survival'>OutDoor/survival</option>
         <option value='Tech'>Tech</option>
         <option value='homeandgarden'>Home and Garden</option>
     </select>
-    <input onChange={handleSummary} id='newSummary' placeholder='Summary'></input>
     <textarea onChange={handleContent} id='newThread'></textarea>
 </form>
 <button onClick={handleSubmit}>Submit</button>

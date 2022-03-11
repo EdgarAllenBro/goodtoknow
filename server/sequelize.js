@@ -1,9 +1,9 @@
+require('dotenv').config({path: __dirname + '/../.env'})
 const {Sequelize} = require('sequelize')
-require("dotenv").config()
-const {DATABASE_URL} = process.env
+const {DATABASE_STRING} = process.env
 
 const sequelize = new Sequelize(
-    `postgres://lvcrglfsrfwifg:5fdf84b1fa52e910a4261655a79cd3ca00cff4d3eb0aed7af0e4d4443da8f20b@ec2-34-230-133-163.compute-1.amazonaws.com:5432/dfde04d1ji65va`,
+    DATABASE_STRING,
     {
         dialect: 'postgres',
         dialectOptions:{
@@ -19,9 +19,12 @@ const sequelize = new Sequelize(
 module.exports ={
 getThreads: (req,res) =>{
     sequelize.query(`SELECT * FROM threads`)
-    .then(dbres=> res.status(200).send(dbres))
+    .then(dbres=> res.status(200).send(dbres[0]))
     .catch(err=>console.log(err))
-}
-
-
-}
+},
+newThread: (req,res) =>{
+   let type = req.body.type
+   let content = req.body.content
+   let title = req.body.title
+sequelize.query(`INSERT INTO threads (title, content, tag) VALUES ('${title}','${content}','${type}')`)
+}}
