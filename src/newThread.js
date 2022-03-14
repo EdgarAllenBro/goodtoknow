@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import {Routes,Route,Link} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import './App.css';
 const axios = require('axios')
 
@@ -20,14 +20,14 @@ const handleContent = (e)=>{
     setContent(e.target.value)}
 
 const handleSubmit = ()=>{
+if (title!=='' && content !== '') {
+
 axios.post('http://localhost:3001/newThread', {
     type:type,
     content:content,
     title:title
-}).catch(err=>{console.Console.log(err)})
-
-// console.log(`type is: ${type} title is: ${title} content is: ${content}`)
-}
+}).catch(err=>{console.log(err)})
+} else (alert('you must have a title and Content to Create a new Thread')) }
 
 return<div>
 <header><Link className='Link' to='/'>
@@ -40,9 +40,9 @@ return<div>
     <select onChange={handleType} name='type' id='typeSelect' defaultValue={'other'}>
         <option value='other'>Other</option>
         <option value='health'>Health</option>
+        <option value='homeandgarden'>Home and Garden</option>
         <option value='survival'>OutDoor/survival</option>
         <option value='Tech'>Tech</option>
-        <option value='homeandgarden'>Home and Garden</option>
     </select>
     <textarea onChange={handleContent} id='newThread'></textarea>
 </form>

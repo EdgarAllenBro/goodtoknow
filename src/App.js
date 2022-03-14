@@ -3,6 +3,7 @@ import './App.css';
 import {Routes,Route,Link} from 'react-router-dom'
 import NewThread from './newThread';
 import GetThreads from './getThreads'
+import Thread from './Thread';
 const axios = require('axios')
 
 function App() {
@@ -12,6 +13,7 @@ return <div>
 <Routes>
   <Route path='/' element={<Home />} />
   <Route path='NewThread' element={<NewThread/>}/>
+  <Route path='thread' element={<Thread title='' tag='' content='' />}/>
 </Routes>
 </div>
 }
