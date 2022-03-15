@@ -13,7 +13,7 @@ return <div>
 <Routes>
   <Route path='/' element={<Home />} />
   <Route path='NewThread' element={<NewThread/>}/>
-  <Route path='thread' element={<Thread title='' tag='' content='' />}/>
+  <Route path='thread' element={<Thread />}/>
 </Routes>
 </div>
 }

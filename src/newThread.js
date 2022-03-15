@@ -21,12 +21,14 @@ const handleContent = (e)=>{
 
 const handleSubmit = ()=>{
 if (title!=='' && content !== '') {
-
 axios.post('http://localhost:3001/newThread', {
     type:type,
     content:content,
     title:title
 }).catch(err=>{console.log(err)})
+setTitle(''); setContent('');setType('')
+
+
 } else (alert('you must have a title and Content to Create a new Thread')) }
 
 return<div>
@@ -36,7 +38,7 @@ return<div>
 <div id='newThreadBox'>
 
 <form>
-    <input onChange={handleTitle} id='newTitle' placeholder='Title'></input>
+    <input onChange={handleTitle} id='newTitle' placeholder='Title' value={title}></input>
     <select onChange={handleType} name='type' id='typeSelect' defaultValue={'other'}>
         <option value='other'>Other</option>
         <option value='health'>Health</option>
@@ -44,7 +46,7 @@ return<div>
         <option value='survival'>OutDoor/survival</option>
         <option value='Tech'>Tech</option>
     </select>
-    <textarea onChange={handleContent} id='newThread'></textarea>
+    <textarea onChange={handleContent} id='newThread' value={content}></textarea>
 </form>
 <button onClick={handleSubmit}>Submit</button>
 </div>
