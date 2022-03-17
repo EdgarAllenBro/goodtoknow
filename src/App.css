@@ -24,13 +24,64 @@ color:blue;
 #newSummary{
 
 }
-
+#snippetContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.link{text-decoration: none;}
+.title{margin:0;text-decoration: none;}
+.tag{margin:0;text-decoration: none;}
 .snippet{
-  background-color: aqua;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(247, 255, 204);
   border:2px solid black;
   margin:5px;
+  width:80vw;
+  height:60px;
 }
+#createNew{
+  border:3px solid black;
+  border-radius: 5px;
+  background-color: rgb(252, 255, 235);
+  margin-right: 15px;
+
+}
+#create{display: flex;
+justify-content: flex-end;
+padding:10px;}
 
 .contentSnippet {
   display:none;
+}
+#threadMain{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#threadBox{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90vw;
+}
+#newComment{
+  width: 50vw;
+}
+.comment{
+  margin:2px;
+  width: 90vw;
+  border:2px solid rgb(112, 111, 111);
+}
+#commentBox{
+  display: flex;
+  flex-direction: column-reverse;
+}
+#newThread{
+  border:2px solid black;
+  box-shadow:5px 5px 3px black ;
 }

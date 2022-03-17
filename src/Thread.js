@@ -29,20 +29,20 @@ setnewcomment('')} else(alert('cannot submit and empty comment'))
 }
    
 return <div>
-    <main>
+    <main id='threadMain'>
       <header><Link className='Link' to='/'>
         <h1>Good To Know</h1> </Link>
       </header>
-    <div>
-        <h2>{title}</h2>
-        <p>{tag}</p>
-        <p>{content}</p>
+    <div id='threadBox'>
+        <h2 id='threadTitle'>{title}</h2>
+        <p id='threadTag'>{tag}</p>
+        <p id='threadContent'>{content}</p>
     </div>
     <div>
-    <input onChange={handleComment} id='newComment' placeholder='Comment' value={newComment}></input>
+    <input onChange={handleComment} id='newComment' placeholder='New Comment' value={newComment}></input>
     <button id='commentButton' onClick={sendComment}>Submit</button>
     </div>
-    <div>{comments.map((e,i)=>{return <p className='comment' key={i}>{e.content}</p>})}</div>
+    <div id='commentBox' >{comments.map((e,i)=>{return <p className='comment' key={i}>{e.content}</p>})}</div>
       </main>
 </div>
 }
