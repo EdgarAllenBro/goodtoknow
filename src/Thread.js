@@ -8,16 +8,18 @@ function Thread() {
 const location = useLocation()
 const [comments,setComments]= useState([])
 const [newComment,setnewcomment] = useState('')
+const [counter,setcounter] = useState()
 const {title,tag,content,threadid} = location.state
 
 const handleComment = (e)=>{
     setnewcomment(e.target.value)
 }
+
 useEffect( ()=>{
     axios.post('http://localhost:3001/comments',{
         threadId:threadid
     })
-    .then(res=>{setComments(res.data)})})
+    .then(res=>{setComments(res.data)})},[counter])
 
 const sendComment = ()=>{
     if(newComment !== ''){
@@ -26,8 +28,9 @@ axios.post('http://localhost:3001/comment',{
    comment:newComment
 }).catch(err=>{console.log(err)})
 setnewcomment('')} else(alert('cannot submit and empty comment'))
+setcounter(counter + 1)
 }
-   
+
 return <div>
     <main id='threadMain'>
       <header><Link className='Link' to='/'>

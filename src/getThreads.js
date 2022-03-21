@@ -10,10 +10,7 @@ const [threads,setThreads] = useState([])
 useEffect( ()=>{ axios.get('http://localhost:3001/threads')
     .then(res=>{setThreads(res.data)})},[]
  )
-useEffect(()=>{
- let  ranNumb = Math.floor(Math.random() * threads.length)
- let ranThread = threads[ranNumb]
-},[threads])
+
    
 return <div id='snippetContainer'>
 {threads.map((e,i)=>{
