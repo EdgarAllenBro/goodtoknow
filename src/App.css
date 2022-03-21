@@ -1,7 +1,7 @@
 header{
   display: flex;
   justify-content: center;
-  background-color: rgb(255, 150, 124);
+  background-color: rgb(248, 191, 177);
   border-bottom: 3px solid turquoise;
   width: 100vw;
   border-radius: 0px 0px 15px 15px ;
@@ -118,4 +118,13 @@ box-shadow: 2px 2px 2px black;
   height: 100vh;
   background-color: rgba(252, 247, 241, 0.747);
 
+}
+
+#newTitle{
+  margin: 20px;
+  border: 3px solid black;
+}
+#newThreadMain{
+  background-color: antiquewhite;
+  height: 100vh;
 }

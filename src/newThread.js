@@ -31,7 +31,7 @@ setTitle(''); setContent('');setType('')
 
 } else (alert('you must have a title and Content to Create a new Thread')) }
 
-return<div>
+return<div id='newThreadMain'>
 <header><Link className='Link' to='/'>
 <h1>Good To Know</h1> </Link>
 </header>
