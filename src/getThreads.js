@@ -13,7 +13,8 @@ useEffect( ()=>{ axios.get('http://localhost:3001/threads')
 
    
 return <div id='snippetContainer'>
-{threads.map((e,i)=>{
+{threads.map((e,i)=>{ 
+    console.log(e.content)
     return <div className='snippet' key={i}>
        <Link className='link' to={'/Thread'} state={{title:e.title, tag:e.tag, content:e.content, threadid:e.threadid}}> <h4 className='title'>{e.title}</h4><p className='tag'>{e.tag}</p> 
 </Link>

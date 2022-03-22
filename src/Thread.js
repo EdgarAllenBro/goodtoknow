@@ -39,7 +39,7 @@ return <div>
     <div id='threadBox'>
         <h2 id='threadTitle'>{title}</h2>
         <p id='threadTag'>{tag}</p>
-        <p id='threadContent'>{content}</p>
+        <div id='threadContent'>{content}</div>
     </div>
     <div>
     <input onChange={handleComment} id='newComment' placeholder='New Comment' value={newComment}></input>

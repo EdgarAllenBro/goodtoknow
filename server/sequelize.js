@@ -23,6 +23,7 @@ getThreads: (req,res) =>{
     .catch(err=>console.log(err))
 },
 newThread: (req,res) =>{
+    console.log(req.body.content)
    let type = req.body.type
    let content = req.body.content
    let title = req.body.title
