@@ -8,7 +8,7 @@ function Thread() {
 const location = useLocation()
 const [comments,setComments]= useState([])
 const [newComment,setnewcomment] = useState('')
-const [counter,setcounter] = useState()
+const [counter,setCounter] = useState()
 const {title,tag,content,threadid} = location.state
 
 const handleComment = (e)=>{
@@ -23,12 +23,14 @@ useEffect( ()=>{
 
 const sendComment = ()=>{
     if(newComment !== ''){
-axios.post('http://localhost:3001/comment',{
-   threadid:threadid,
-   comment:newComment
-}).catch(err=>{console.log(err)})
-setnewcomment('')} else(alert('cannot submit and empty comment'))
-setcounter(counter + 1)
+    axios.post('http://localhost:3001/comment',{
+        threadid:threadid,
+        comment:newComment
+        }).catch(err=>{console.log(err)})
+    setnewcomment('')
+    setCounter(counter + 1)
+    console.log(counter)} 
+else(alert('cannot submit an empty comment'))
 }
 
 return <div>
@@ -41,6 +43,7 @@ return <div>
         <p id='threadTag'>{tag}</p>
         <div id='threadContent'>{content}</div>
     </div>
+    <h3 id='commentTitle'>Comments</h3>
     <div>
     <input onChange={handleComment} id='newComment' placeholder='New Comment' value={newComment}></input>
     <button id='commentButton' onClick={sendComment}>Submit</button>

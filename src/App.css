@@ -6,6 +6,12 @@ header{
   width: 100vw;
   border-radius: 0px 0px 15px 15px ;
 }
+h1:hover{
+  transform:scale(.9);
+}
+h1:active{
+  transform: scale(1.2);
+}
 .Link{
 text-decoration: none;
 color:black;
@@ -55,7 +61,12 @@ color:black;
   border-radius: 5px;
   background-color: rgb(252, 255, 235);
   margin-right: 15px;
-
+}
+#createNew:hover{
+  transform: translate(0px, -2px);
+}
+#createNew:active{
+transform:scale(.9);
 }
 #create{display: flex;
 justify-content: flex-end;
@@ -105,20 +116,37 @@ box-shadow: 2px 2px 2px black;
 #commentBox{
   padding: 10px;
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
+  justify-content: flex-start;
   width: 80vw;
+  height:20vh;
+  overflow: auto;
   border: 5px double rgba(0, 0, 0, 0.603);
   box-shadow: 5px 5px 3px rgb(0, 0, 0) ;
   background-color: rgb(255, 187, 187);
+}
+#commentTitle{
+  margin: 10px;
 }
 #newThread{
   border:2px solid black;
   box-shadow:5px 5px 3px black ;
 }
+#newThreadBox{
+  display: flex;
+  flex-direction: column;
+}
+#newButton{
+  border: 4px double grey;
+  margin: 15px;
+  padding:6px;
+}#newButton:active{
+  transform: translate(0px,4px);
+  background-color: blueviolet;
+}
 #threadMain{
   height: 100vh;
   background-color: rgba(252, 247, 241, 0.747);
-
 }
 
 #newTitle{
@@ -126,6 +154,10 @@ box-shadow: 2px 2px 2px black;
   border: 3px solid black;
 }
 #newThreadMain{
+  background-color: antiquewhite;
+  height: 100vh;
+}
+main{
   background-color: antiquewhite;
   height: 100vh;
 }

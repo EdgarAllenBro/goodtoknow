@@ -48,7 +48,7 @@ return<div id='newThreadMain'>
     </select>
     <textarea onChange={handleContent} id='newThread' value={content}></textarea>
 </form>
-<button onClick={handleSubmit}>Submit</button>
+<button id='newButton' onClick={handleSubmit}>Submit</button>
 </div>
 
 </div>
