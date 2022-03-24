@@ -23,11 +23,12 @@ function Home() {
       <header><Link className='Link' to='/'>
         <h1>Good To Know</h1> </Link>
       </header>
-        <div id='create'>
+      <div id='create'>
         <Link id='createNew' className='link' to='/NewThread'>Create New</Link>
         </div>
+      <div id='main'>
         <GetThreads />
-
+        </div>
       </main>
     </>
   )

@@ -8,7 +8,7 @@ function Thread() {
 const location = useLocation()
 const [comments,setComments]= useState([])
 const [newComment,setnewcomment] = useState('')
-const [counter,setCounter] = useState()
+const [counter,setCounter] = useState(1)
 const {title,tag,content,threadid} = location.state
 
 const handleComment = (e)=>{
